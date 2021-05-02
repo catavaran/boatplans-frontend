@@ -24,7 +24,7 @@ BoatplansApp.getInitialProps = async (appContext) => {
         propulsions: [
             {slug: 'row', longName: 'Row boat plans'},
             {slug: 'sail', longName: 'Sail boat plans'},
-            {slug: 'motor', longName: 'Notor boat plans'},
+            {slug: 'motor', longName: 'Motor boat plans'},
         ],
     };
 
