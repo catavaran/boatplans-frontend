@@ -7,6 +7,7 @@ export default function TopMenu({ siteInfo }) {
     const [shown, setShown] = useState(false);
 
     const toggleShown = () => { setShown(!shown) };
+    const hideMenu = () => { setShown(false); };
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
@@ -27,16 +28,17 @@ export default function TopMenu({ siteInfo }) {
                             <li className="nav-item" key={propulsion.slug}>
                                 <Link
                                     href={{
-                                        pathname: '/slug/[slug]/',
-                                        query: { slug: propulsion.slug },
+                                        pathname: '/plans/[propulsion]/',
+                                        query: { propulsion: propulsion.slug },
                                     }}
+                                    prefetch={false}
                                 >
-                                    <a className="nav-link">{propulsion.longName}</a>
+                                    <a onClick={hideMenu} className="nav-link" >{propulsion.longName}</a>
                                 </Link>
                             </li>
                         )}
                     </ul>
-                    
+
                 </div>
 
             </div>
