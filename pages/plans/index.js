@@ -12,7 +12,7 @@ function RecentDesignsTable({ recentDesigns }) {
         <table className="table table-bordered">
             <tbody>
                 {recentDesigns.map(design =>
-                    <tr><td><DesignCard design={design} /></td></tr>
+                    <tr key={design.slug} ><td><DesignCard design={design} /></td></tr>
                 )}
             </tbody>
         </table>
@@ -38,7 +38,7 @@ export default function Plans({ siteInfo, recentDesigns }) {
 
                 <div className="row">
                     {siteInfo.propulsions.map(propulsion =>
-                        <div className="col-md-4 mb-3">
+                        <div className="col-md-4 mb-3" key={propulsion.slug}>
                             <PropulsionLinks propulsion={propulsion} />
                         </div>
                     )}
@@ -48,7 +48,7 @@ export default function Plans({ siteInfo, recentDesigns }) {
 
                 <div className="row">
                     {recentDesigns.map(recentDesignsInfo =>
-                        <div className="col-md-4 mb-3">
+                        <div className="col-md-4 mb-3" key={recentDesignsInfo.propulsion.slug}>
                             <RecentDesignsTable recentDesigns={recentDesignsInfo.recent} />
                         </div>
                     )}

@@ -3,15 +3,18 @@ import Link from 'next/link';
 
 export function PropulsionLengthLink({ propulsion, slug, label }) {
     return (
-        <Link
-            href={{
-                pathname: '/plans/[propulsion]/[length]/',
-                query: { propulsion: propulsion.slug, length: slug },
-            }}
-            prefetch={false}
-        >
-            <a className="me-3">{label}</a>
-        </Link>
+        <>
+            <Link
+                href={{
+                    pathname: '/plans/[propulsion]/[length]/',
+                    query: { propulsion: propulsion.slug, length: slug },
+                }}
+                prefetch={false}
+            >
+                <a className="me-3 text-nowrap">{label}</a>
+            </Link>
+            {' '}
+        </>
     );
 }
 
@@ -30,7 +33,7 @@ export default function PropulsionLinks({ propulsion }) {
                 </Link>
             </h2>
             {propulsion.lengths.map(length =>
-                <PropulsionLengthLink propulsion={propulsion} slug={length.slug} label={length.label} />)
+                <PropulsionLengthLink propulsion={propulsion} slug={length.slug} label={length.label} key={length.slug} />)
             }
         </>
     );
