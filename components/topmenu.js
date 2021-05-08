@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default function TopMenu({ siteInfo }) {
 
@@ -33,7 +33,7 @@ export default function TopMenu({ siteInfo }) {
                                     }}
                                     prefetch={false}
                                 >
-                                    <a onClick={hideMenu} className="nav-link" >{propulsion.longName}</a>
+                                    <a onClick={hideMenu} className="nav-link">{propulsion.longName}</a>
                                 </Link>
                             </li>
                         )}
