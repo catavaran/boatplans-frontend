@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import ThumbnailImage from './thumbnailimage';
 import styles from './planlist.module.scss';
 
 function PlanRow({ plan }) {
@@ -8,7 +9,7 @@ function PlanRow({ plan }) {
         <tr>
             <td className={styles.image}>
                 <Link href={plan.absoluteUrl}>
-                    <a title={title}><img src={plan.image} alt={plan.name} /></a>
+                    <a title={title}><ThumbnailImage image={plan.image} alt={plan.name} /></a>
                 </Link>
             </td>
             <td>

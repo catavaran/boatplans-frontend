@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import ThumbnailImage from './thumbnailimage';
 import styles from './designcard.module.scss';
 
 export default function DesignCard({ design }) {
@@ -8,7 +9,7 @@ export default function DesignCard({ design }) {
         <div className="d-flex">
             <div className={styles.image}>
                 <Link href={design.absoluteUrl}>
-                    <a title={title}><img src={design.image} alt={design.name} /></a>
+                    <a title={title}><ThumbnailImage image={design.image} alt={design.name} /></a>
                 </Link>
             </div>
             <div className="description ms-3">
