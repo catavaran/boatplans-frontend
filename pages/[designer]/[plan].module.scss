@@ -1,0 +1,19 @@
+.main_image {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.photo {
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.url {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
