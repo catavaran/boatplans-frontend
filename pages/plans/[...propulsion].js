@@ -30,7 +30,9 @@ export default function PlansByPropulsion({ siteInfo, propulsion, lengthMin, len
                 <title>{siteInfo.siteName}</title>
             </Head>
             <Breadcrumb items={breadcrumb} />
-            <PlanList plans={plans} />
+            <main>
+                <PlanList plans={plans} />
+            </main>
         </Layout>
     )
 }
@@ -38,12 +40,12 @@ export default function PlansByPropulsion({ siteInfo, propulsion, lengthMin, len
 
 export async function getServerSideProps(context) {
 
-    const [ propulsion, lengthRange, excessParam ] = context.params.propulsion;
+    const [propulsion, lengthRange, excessParam] = context.params.propulsion;
     if (excessParam !== undefined) {
         return { notFound: true };
     }
 
-    const [ lengthMin, lengthMax ] = lengthRange ? lengthRange.split('-') : [];
+    const [lengthMin, lengthMax] = lengthRange ? lengthRange.split('-') : [];
     const params = {
         propulsion: propulsion,
         loa_min: lengthMin || '',

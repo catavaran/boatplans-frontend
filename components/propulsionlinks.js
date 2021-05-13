@@ -32,9 +32,11 @@ export default function PropulsionLinks({ propulsion }) {
                     <a>{propulsion.longName}</a>
                 </Link>
             </h2>
-            {propulsion.lengths.map(length =>
-                <PropulsionLengthLink propulsion={propulsion} slug={length.slug} label={length.label} key={length.slug} />)
-            }
+            <div style={{lineHeight: 1.7}}>
+                {propulsion.lengths.map(length =>
+                    <PropulsionLengthLink propulsion={propulsion} slug={length.slug} label={length.label} key={length.slug} />)
+                }
+            </div>
         </>
     );
 

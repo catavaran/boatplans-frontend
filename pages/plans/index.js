@@ -12,7 +12,7 @@ function RecentDesignsTable({ recentDesigns }) {
         <table className="table table-bordered">
             <tbody>
                 {recentDesigns.map(design =>
-                    <tr key={design.slug} ><td><DesignCard design={design} /></td></tr>
+                    <tr key={design.slug}><td className="py-3"><DesignCard design={design} /></td></tr>
                 )}
             </tbody>
         </table>

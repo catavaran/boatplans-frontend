@@ -16,7 +16,7 @@ export default function DesignCard({ design }) {
                 <Link href={design.absoluteUrl}>
                     <a title={title}><b>{design.name}</b> by {design.designer.name}</a>
                 </Link>
-                <div>{design.tinyDescription}</div>
+                <div className="mt-3">{design.tinyDescription}</div>
                 <div className="mt-3">LOA: {design.loa.imperial} / {design.loa.metric}</div>
             </div>
         </div>
