@@ -28,17 +28,27 @@ export default function PlansByPropulsion({ siteInfo, plan }) {
             <Breadcrumb items={breadcrumb} />
             <main>
 
-                <h1><strong>{plan.name}</strong> by <Link href={plan.designer.absoluteUrl}><a>{plan.designer.name}</a></Link></h1>
+                <h1><strong>{plan.name}</strong> by <Link href={plan.designer.absoluteUrl} prefetch={false}><a>{plan.designer.name}</a></Link></h1>
                 <h2>{plan.tinyDescription}</h2>
 
                 <div className="row">
 
                     <div className="col-12 col-md-5 order-1 order-md-2 text-center mb-4">
-                        <div className={styles.main_image}>
-                            <a href={plan.image.original} target="_blank">
-                                <ThumbnailImage image={plan.image} alt={plan.name} />
-                            </a>
-                        </div>
+                        <a href={plan.image.original} title={plan.name} target="_blank">
+                            <ThumbnailImage image={plan.image} className="img-fluid" alt={plan.name} />
+                        </a>
+                        {(plan.drawings.length > 0) &&
+                            <div className="row mt-3">
+                                {plan.drawings.map(drawing =>
+                                    <div className="col-6 text-center" key={drawing.image.original}>
+                                        <a href={drawing.image.original} title={drawing.title} target="_blank">
+                                            <ThumbnailImage image={drawing.image} className="img-fluid" alt={drawing.title} />
+                                        </a>
+                                        <div className="mt-2 mb-4 lh-1"><small>{drawing.title}</small></div>
+                                    </div>
+                                )}
+                            </div>
+                        }
                     </div>
 
                     <div className="col-12 col-md-7 order-2 order-md-1">
@@ -48,19 +58,21 @@ export default function PlansByPropulsion({ siteInfo, plan }) {
                         <h3 className="my-3">Description:</h3>
                         <ReactMarkdown children={plan.description} />
 
-                        <h3 className="my-3">Photo gallery</h3>
-                        <div className="row">
-                            {plan.photos.map(photo =>
-                                <div className="col-12 col-sm-6 col-md-4" key={photo.image.original}>
-                                    <div className={styles.photo}>
-                                        <a href={photo.image.original} target="_blank">
-                                            <ThumbnailImage image={photo.image} alt={photo.title} />
-                                        </a>
-                                        <div className="mt-2 mb-4 lh-1"><small>{photo.title}</small></div>
-                                    </div>
+                        {(plan.photos.length > 0) &&
+                            <>
+                                <h3 className="my-3">Photo gallery</h3>
+                                <div className="row">
+                                    {plan.photos.map(photo =>
+                                        <div className="col-12 col-sm-6 col-md-4" key={photo.image.original}>
+                                            <a href={photo.image.original} title={photo.title} target="_blank">
+                                                <ThumbnailImage image={photo.image} className="img-fluid rounded" alt={photo.title} lazyLoad={true} />
+                                            </a>
+                                            <div className="mt-2 mb-4 lh-1"><small>{photo.title}</small></div>
+                                        </div>
+                                    )}
                                 </div>
-                            )}
-                        </div>
+                            </>
+                        }
 
                     </div>
 

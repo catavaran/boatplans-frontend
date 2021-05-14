@@ -8,12 +8,12 @@ export default function DesignCard({ design }) {
     return (
         <div className="d-flex">
             <div className={styles.image}>
-                <Link href={design.absoluteUrl}>
+                <Link href={design.absoluteUrl} prefetch={false}>
                     <a title={title}><ThumbnailImage image={design.image} alt={design.name} /></a>
                 </Link>
             </div>
             <div className="description ms-3">
-                <Link href={design.absoluteUrl}>
+                <Link href={design.absoluteUrl} prefetch={false}>
                     <a title={title}><b>{design.name}</b> by {design.designer.name}</a>
                 </Link>
                 <div className="mt-3">{design.tinyDescription}</div>
